@@ -19,6 +19,10 @@ class FeegowApi {
     public static function listProfessionals() {
         return 'professional/list';
     }
+    
+    public static function getProfessional() {
+        return 'professional/search';
+    }
 
     public static function listSource() {
         return 'patient/list-sources';

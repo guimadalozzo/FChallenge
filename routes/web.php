@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('pages.agendamento');
 // });
-Route::get('/', ['as' => 'password.sent_mail', 'uses' => 'App\Http\Controllers\AgendamentoController@agendamento']);
+Route::any('/', ['as' => 'agendamento.list', 'uses' => 'App\Http\Controllers\AgendamentoController@agendamento']);
+Route::post('/create', ['as' => 'agendamento.create', 'uses' => 'App\Http\Controllers\AgendamentoController@create']);
+Route::post('/store',  ['as' => 'agendamento.store', 'uses' => 'App\Http\Controllers\AgendamentoController@store']);
