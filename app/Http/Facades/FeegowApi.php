@@ -9,7 +9,7 @@ class FeegowApi {
     }
 
     public static function getToken() {
-        return config('feegow.api_path');
+        return config('feegow.api_token');
     }
 
     public static function listSpecialties() {
@@ -23,5 +23,5 @@ class FeegowApi {
     public static function listSource() {
         return 'patient/list-sources';
     }
-    
+
 }

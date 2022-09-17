@@ -1,6 +1,13 @@
 @extends('layouts.default')
 
 @section('content')
+
+
+@foreach($especialidades as $item)
+    <li>{{$item->nome}}</li>
+@endforeach
+
+
 <div class="grid grid-cols-1 md:grid-cols-2">
     <div class="p-6">
         <div class="flex items-center">

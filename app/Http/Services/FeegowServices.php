@@ -6,14 +6,14 @@ use App\Http\Facades\FeegowApi;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
-class FeegowService
+class FeegowServices
 {
 
     public function getSpecialties() {
         $cliente = new Client(['base_uri' => FeegowApi::getPath()]);
         try {
             $resposta = $cliente->request('GET', FeegowApi::listSpecialties(), [
-                'headers' => [ 'Authorization' => 'Bearer ' . FeegowApi::getToken()],
+                'headers' => [ 'x-access-token' => FeegowApi::getToken()],
             ]);
         } catch (RequestException $e) {
             \Log::error("Err: getSpecialties failed!");
@@ -25,7 +25,6 @@ class FeegowService
         }
 
         $retorno = json_decode($resposta->getBody());
-
         return response()->json([
                 'success' => true,
                 'specialties' => isset($retorno->content) ? $retorno->content : null

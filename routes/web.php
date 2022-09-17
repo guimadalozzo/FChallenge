@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.agendamento');
-});
+// Route::get('/', function () {
+//     return view('pages.agendamento');
+// });
+Route::get('/', ['as' => 'password.sent_mail', 'uses' => 'App\Http\Controllers\AgendamentoController@agendamento']);
