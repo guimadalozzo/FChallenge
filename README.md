@@ -1,64 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Feegow Challenge 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Design de código, com ênfase em:
 
-## About Laravel
+- Boas práticas de orientação a objetos.
+- Organização de arquitetura front-end.
+- Organização de arquitetura back-end.
+- Integração com sistemas de terceiros ([Feegow Doc](https://api.feegow.com.br/api/documentation)).
+- Código de baixa granularidade e acoplamento.
+- Combinação de uso de tecnologias front-back como Laravel (PHP), Blade e jQuery.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologias utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para desenvolvimento e organização limpa o back-end utilizou-se o Laravel (framework PHP). A organização de templates e o desenvolvimento front-end foi realizado utilizando a engine Blade.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Algumas bibliotecas foram utilizadas para a camada de front, tais como: jQuery, Select2 e SweetAlert2.
 
-## Learning Laravel
+Também, para o back foram utilizadas algumas bibliotecas, tais como: GuzzleHttp e Laravel Sessions.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O banco de dados referenciado nas variáveis de ambiente de exemplo (.env.example) foi o MySQL, podendo ser substituído pelo Postgres.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalações necessárias
 
-## Laravel Sponsors
+Este projeto contém alguns requisitos para sua execução:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- [PHP](https://www.php.net/manual/en/install.php)
+- [Composer](https://getcomposer.org/)
+- [MySQL](https://dev.mysql.com/downloads/installer/)
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Executando o projeto
 
-## Contributing
+Os comandos a seguir são necessários para a execução do projeto.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Primeiramente vamos baixar o projeto do GitHub.
 
-## Code of Conduct
+- `git clone https://github.com/guimadalozzo/FChallenge.git`
+- `cd FChallenge`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Agora, devemos baixar todas as dependências para a execução do projeto.
 
-## Security Vulnerabilities
+- `composer install`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Na sequência vamos fazer todas as configurações necessárias do ambiente, começando com a criação do banco de dados MySQL. Utilizando algum SGBD (MySQLWorkBrench, SQLMyAdmin, SQL Table, DBeaver, etc) crie o banco de dados chamado `fchallenge`.
 
-## License
+Execute o código a seguir que irá copiar o arquivo `.env.example` para `.env`. Este arquivo é responsável pela organização e configuração das variáveis de ambiente.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- `copiar .env.example para .env`
+
+O próximo passo é adquirir um TOKEN de acesso a API da Feegow, junto com o suporte e atendimento do sistema. Com o TOKEN disponível, adicione o conteúdo na variável de ambiente `TOKEN_FEEGOW` que está inserida no arquivo `.env`.
+
+Por fim, temos que executar os próximos dois comandos. O primeiro gera uma chave da aplicação Laravel, enquanto o segundo executa o sistema.
+
+- `php artisan key:generate`
+- `php artisan serve`
+
+Com a execução do último comando, você verá uma mensagem parecida com a seguinte: 
+
+`Starting Laravel development server: http://127.0.0.1:8000`
+
+Pronto! Acessando `http://127.0.0.1:8000` você será direcionado ao desafio desenvolvido.
